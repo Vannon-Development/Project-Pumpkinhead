@@ -57,20 +57,15 @@ public class PlayerCharacter : MonoBehaviour
                 select item;
             possibleActions = new List<PlayerAction>(filter);
 
-            if (possibleActions.Count == 0)
-            {
-                return false;
-            }
-            else
-            {
-                current = possibleActions[0].chain[0];
-                comboLocked = false;
-                currentChain = 1;
-                nextLocked = false;
-                didHit = false;
-                actionQueued = true;
-                return true;
-            }
+            if (possibleActions.Count == 0) return false;
+            
+            current = possibleActions[0].chain[0];
+            comboLocked = false;
+            currentChain = 1;
+            nextLocked = false;
+            didHit = false;
+            actionQueued = true;
+            return true;
         }
         public void AddAction(PlayerAction.Action action)
         {
@@ -107,25 +102,23 @@ public class PlayerCharacter : MonoBehaviour
 
         public void NextAction()
         {
-            if (nextLocked)
+            if (!nextLocked) return;
+            var filter = from item in possibleActions
+                where !item.chain[currentChain].requiresHit || item.chain[currentChain].requiresHit == didHit
+                select item;
+            possibleActions = new List<PlayerAction>(filter);
+            if (possibleActions.Count == 0)
             {
-                var filter = from item in possibleActions
-                    where !item.chain[currentChain].requiresHit || item.chain[currentChain].requiresHit == didHit
-                    select item;
-                possibleActions = new List<PlayerAction>(filter);
-                if (possibleActions.Count == 0)
-                {
-                    current = null;
-                    nextLocked = false;
-                }
-                else
-                {
-                    current = possibleActions[0].chain[currentChain];
-                    currentChain += 1;
-                    nextLocked = false;
-                    didHit = false;
-                    actionQueued = true;
-                }
+                current = null;
+                nextLocked = false;
+            }
+            else
+            {
+                current = possibleActions[0].chain[currentChain];
+                currentChain += 1;
+                nextLocked = false;
+                didHit = false;
+                actionQueued = true;
             }
         }
 
@@ -142,28 +135,42 @@ public class PlayerCharacter : MonoBehaviour
     
     private class MotionController
     {
-        public enum MotionMode: int { Stand = 0, Walk = 1, Run = 2 }
-
         public bool DirectionForward { get; private set; } = true;
+        public Vector2 Motion { get; private set; } = Vector2.zero;
+        private bool actionMode;
 
-        private Vector2 moving = Vector2.zero;
         private bool forwardChanged;
         private bool running;
         private bool motionChanged;
 
         public void MoveChanged(Vector2 val)
         {
-            moving = val;
-            if (Mathf.Abs(val.x) > 0.001)
+            Motion = val;
+            UpdateDirection(false);
+            motionChanged = true;
+        }
+
+        public bool InActionMode
+        {
+            get => actionMode;
+            set
             {
-                var newForward = val.x > 0;
+                actionMode = value;
+                if (!value) UpdateDirection(true);
+            }
+        }
+
+        private void UpdateDirection(bool force)
+        {
+            if (!actionMode && (Mathf.Abs(Motion.x) > 0.001 || force))
+            {
+                var newForward = Motion.x > 0;
                 if (DirectionForward != newForward)
                 {
                     DirectionForward = newForward;
                     forwardChanged = true;
                 }
             }
-            motionChanged = true;
         }
 
         public void RunChanged(bool val)
@@ -192,9 +199,8 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
-        public bool IsWalking => moving.magnitude > 0.001;
+        public bool IsWalking => Motion.magnitude > 0.001;
         public bool IsRunning => running && IsWalking;
-        public Vector2 Motion => moving;
     }
 
     public Vector2 walkSpeed;
@@ -204,7 +210,6 @@ public class PlayerCharacter : MonoBehaviour
     private Rigidbody2D body;
     private Animator ani;
     private MotionController motion;
-    private bool actionMode;
     private bool resumeMove;
     private ActionController action;
     
@@ -221,7 +226,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Update()
     {
-        if (actionMode)
+        if (motion.InActionMode)
         {
             if (action.Ready)
             {
@@ -254,8 +259,8 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public void OnMove(InputValue value)
-    {
-        Vector2 stick = value.Get<Vector2>();
+    { 
+        var stick = value.Get<Vector2>();
         motion.MoveChanged(stick);
     }
 
@@ -274,14 +279,14 @@ public class PlayerCharacter : MonoBehaviour
         motion.RunChanged(Mathf.Abs(value.Get<float>()) > 0.001);
     }
 
-    public void DoAction(PlayerAction.Action button)
+    private void DoAction(PlayerAction.Action button)
     {
-        if(actionMode)
+        if(motion.InActionMode)
             action.AddAction(button);
         else
         {
-            actionMode = action.StartAction(button, motion.IsWalking, motion.IsRunning);
-            if(actionMode) body.velocity = Vector2.zero;
+            motion.InActionMode = action.StartAction(button, motion.IsWalking, motion.IsRunning);
+            if(motion.InActionMode) body.velocity = Vector2.zero;
         }
     }
 
@@ -292,7 +297,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void ActionEnded()
     {
-        actionMode = false;
+        motion.InActionMode = false;
         ani.SetInteger(Action, 0);
         resumeMove = true;
     }

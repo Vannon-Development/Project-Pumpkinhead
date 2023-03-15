@@ -499,33 +499,6 @@ MonoBehaviour:
   walkSpeed: {x: 8, y: 5.3333335}
   runSpeed: {x: 15, y: 10}
   actions:
-  - name: Jab
-    initialState: 1
-    chain:
-    - action: 0
-      animationIndex: 3
-      requiresHit: 0
-  - name: Double Jab
-    initialState: 1
-    chain:
-    - action: 0
-      animationIndex: 3
-      requiresHit: 0
-    - action: 0
-      animationIndex: 4
-      requiresHit: 0
-  - name: Push Jab
-    initialState: 1
-    chain:
-    - action: 0
-      animationIndex: 3
-      requiresHit: 0
-    - action: 0
-      animationIndex: 4
-      requiresHit: 0
-    - action: 0
-      animationIndex: 5
-      requiresHit: 0
   - name: Spear
     initialState: 1
     chain:
@@ -541,11 +514,20 @@ MonoBehaviour:
     - action: 0
       animationIndex: 6
       requiresHit: 0
-  - name: Swipe
-    initialState: 3
+  - name: Vault
+    initialState: 2
     chain:
     - action: 0
       animationIndex: 7
+      requiresHit: 0
+    - action: 0
+      animationIndex: 8
+      requiresHit: 0
+    - action: 0
+      animationIndex: 9
+      requiresHit: 0
+    - action: 0
+      animationIndex: 10
       requiresHit: 0
 --- !u!210 &1200084153826745423
 SortingGroup:
