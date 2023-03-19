@@ -9,9 +9,9 @@ public class PlayerAttackActionDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property);
 
         Rect[] positions = {
-            new Rect(position.x, position.y, position.width * 0.3f, position.height),
-            new Rect(position.x + position.width * 0.64f, position.y, position.width * 0.2f, position.height),
-            new Rect(position.x + position.width * 0.86f, position.y, position.width * 0.1f, position.height)
+            new Rect(position.x, position.y, position.width * 0.5f, position.height),
+            new Rect(position.x + position.width * 0.52f, position.y, position.width * 0.3f, position.height),
+            new Rect(position.x + position.width * 0.84f, position.y, position.width * 0.16f, position.height)
         };
 
         EditorGUI.PropertyField(positions[0], property.FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.action)), GUIContent.none);

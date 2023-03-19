@@ -20,13 +20,19 @@ public class PlayerCharacter : MonoBehaviour
         [Serializable]
         public class PlayerActionItem
         {
+            [Tooltip("The button pushed to initiate this action")]
             public Action action;
+            [Tooltip("The number of the animation triggered by this action")]
             public int animationIndex;
+            [Tooltip("Whether this action has to hit an enemy or object to allow the next action to be triggered")]
             public bool requiresHit;
         }
 
+        [Tooltip("The name of this set of actions")]
         public string name;
+        [Tooltip("The initial states this character must be in to trigger this action sequence ")]
         public InitialStates initialState;
+        [Tooltip("The list of individual actions that make up this chain")]
         public PlayerActionItem[] chain;
     }
 
@@ -203,8 +209,11 @@ public class PlayerCharacter : MonoBehaviour
         public bool IsRunning => running && IsWalking;
     }
 
+    [Tooltip("The speed this character moves while in walk mode.")]
     public Vector2 walkSpeed;
+    [Tooltip("The speed this character moves while in run mode")]
     public Vector2 runSpeed;
+    [Tooltip("The actions registered to this character")]
     public PlayerAction[] actions;
 
     private Rigidbody2D body;
