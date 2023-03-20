@@ -14,7 +14,7 @@ public class PlayerAttackActionDrawer : PropertyDrawer
             new Rect(position.x + position.width * 0.84f, position.y, position.width * 0.16f, position.height)
         };
 
-        EditorGUI.PropertyField(positions[0], property.FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.action)), GUIContent.none);
+        EditorGUI.PropertyField(positions[0], property.FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.actionCommand)), GUIContent.none);
         EditorGUI.PropertyField(positions[1], property.FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.animationIndex)), GUIContent.none);
         EditorGUI.PropertyField(positions[2], property.FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.requiresHit)), GUIContent.none);
 

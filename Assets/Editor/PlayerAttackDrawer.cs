@@ -14,13 +14,13 @@ public class PlayerAttackDrawer : PropertyDrawer
         string code = "";
         for (int counter = 0; counter < chain.arraySize; counter++)
         {
-            var a = chain.GetArrayElementAtIndex(counter).FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.action)).enumValueIndex;
-            var a2 = (PlayerCharacter.PlayerAction.Action)a;
-            if (a2 == PlayerCharacter.PlayerAction.Action.FastAttack) code += "F";
-            else if (a2 == PlayerCharacter.PlayerAction.Action.SlowAttack) code += "S";
-            else if (a2 == PlayerCharacter.PlayerAction.Action.Jump) code += "J";
-            else if (a2 == PlayerCharacter.PlayerAction.Action.SpecialAttack) code += "P";
-            else if (a2 == PlayerCharacter.PlayerAction.Action.Dodge) code += "D";
+            var a = chain.GetArrayElementAtIndex(counter).FindPropertyRelative(nameof(PlayerCharacter.PlayerAction.PlayerActionItem.actionCommand)).enumValueIndex;
+            var a2 = (PlayerCharacter.PlayerAction.ActionCommand)a;
+            if (a2 == PlayerCharacter.PlayerAction.ActionCommand.FastAttack) code += "F";
+            else if (a2 == PlayerCharacter.PlayerAction.ActionCommand.SlowAttack) code += "S";
+            else if (a2 == PlayerCharacter.PlayerAction.ActionCommand.Jump) code += "J";
+            else if (a2 == PlayerCharacter.PlayerAction.ActionCommand.SpecialAttack) code += "P";
+            else if (a2 == PlayerCharacter.PlayerAction.ActionCommand.Dodge) code += "D";
             if (counter != chain.arraySize - 1) code += ",";            
         }
 
