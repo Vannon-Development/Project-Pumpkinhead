@@ -152,7 +152,7 @@ public class PlayerCharacter : MonoBehaviour
         public void MoveChanged(Vector2 val)
         {
             MotionVector = val;
-            UpdateDirection(false);
+            UpdateDirection();
             motionChanged = true;
         }
 
@@ -162,13 +162,13 @@ public class PlayerCharacter : MonoBehaviour
             set
             {
                 actionMode = value;
-                if (!value) UpdateDirection(true);
+                if (!value) UpdateDirection();
             }
         }
 
-        private void UpdateDirection(bool force)
+        private void UpdateDirection()
         {
-            if (!actionMode && (Mathf.Abs(MotionVector.x) > 0.001 || force))
+            if (!actionMode && (Mathf.Abs(MotionVector.x) > 0.001))
             {
                 var newForward = MotionVector.x > 0;
                 if (DirectionForward != newForward)
