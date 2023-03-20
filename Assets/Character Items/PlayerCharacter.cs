@@ -15,13 +15,13 @@ public class PlayerCharacter : MonoBehaviour
     {
         [Flags]
         public enum InitialStates { None = 0, Still = 1, Walking = 2, Running = 4 }
-        public enum Action { FastAttack, SlowAttack, SpecialAttack, Dodge, Jump }
+        public enum ActionCommand { FastAttack, SlowAttack, SpecialAttack, Dodge, Jump }
         
         [Serializable]
         public class PlayerActionItem
         {
-            [Tooltip("The button pushed to initiate this action")]
-            public Action action;
+            [FormerlySerializedAs("action")] [Tooltip("The button pushed to initiate this action")]
+            public ActionCommand actionCommand;
             [Tooltip("The number of the animation triggered by this action")]
             public int animationIndex;
             [Tooltip("Whether this action has to hit an enemy or object to allow the next action to be triggered")]
@@ -52,14 +52,14 @@ public class PlayerCharacter : MonoBehaviour
             playerActions = actions;
         }
 
-        public bool StartAction(PlayerAction.Action action, bool walking, bool running)
+        public bool StartAction(PlayerAction.ActionCommand actionCommand, bool walking, bool running)
         {
             PlayerAction.InitialStates i = PlayerAction.InitialStates.Still;
             if (running) i = PlayerAction.InitialStates.Running;
             else if (walking) i = PlayerAction.InitialStates.Walking;
 
             var filter = from item in playerActions
-                where item.initialState.HasFlag(i) && item.chain[0].action == action
+                where item.initialState.HasFlag(i) && item.chain[0].actionCommand == actionCommand
                 select item;
             possibleActions = new List<PlayerAction>(filter);
 
@@ -73,14 +73,14 @@ public class PlayerCharacter : MonoBehaviour
             actionQueued = true;
             return true;
         }
-        public void AddAction(PlayerAction.Action action)
+        public void AddAction(PlayerAction.ActionCommand actionCommand)
         {
             if (!comboLocked && current != null)
             {
                 if (!nextLocked)
                 {
                     var filter = from item in possibleActions
-                        where item.chain.Length > currentChain && item.chain[currentChain].action == action
+                        where item.chain.Length > currentChain && item.chain[currentChain].actionCommand == actionCommand
                         select item;
                     possibleActions = new List<PlayerAction>(filter);
                     if (possibleActions.Count == 0)
@@ -142,7 +142,7 @@ public class PlayerCharacter : MonoBehaviour
     private class MotionController
     {
         public bool DirectionForward { get; private set; } = true;
-        public Vector2 Motion { get; private set; } = Vector2.zero;
+        public Vector2 MotionVector { get; private set; } = Vector2.zero;
         private bool actionMode;
 
         private bool forwardChanged;
@@ -151,7 +151,7 @@ public class PlayerCharacter : MonoBehaviour
 
         public void MoveChanged(Vector2 val)
         {
-            Motion = val;
+            MotionVector = val;
             UpdateDirection(false);
             motionChanged = true;
         }
@@ -168,9 +168,9 @@ public class PlayerCharacter : MonoBehaviour
 
         private void UpdateDirection(bool force)
         {
-            if (!actionMode && (Mathf.Abs(Motion.x) > 0.001 || force))
+            if (!actionMode && (Mathf.Abs(MotionVector.x) > 0.001 || force))
             {
-                var newForward = Motion.x > 0;
+                var newForward = MotionVector.x > 0;
                 if (DirectionForward != newForward)
                 {
                     DirectionForward = newForward;
@@ -205,7 +205,7 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
-        public bool IsWalking => Motion.magnitude > 0.001;
+        public bool IsWalking => MotionVector.magnitude > 0.001;
         public bool IsRunning => running && IsWalking;
     }
 
@@ -252,12 +252,12 @@ public class PlayerCharacter : MonoBehaviour
             if (motion.IsRunning)
             {
                 ani.SetInteger(Motion, 2);
-                body.velocity = runSpeed * motion.Motion;
+                body.velocity = runSpeed * motion.MotionVector;
             }
             else if (motion.IsWalking)
             {
                 ani.SetInteger(Motion, 1);
-                body.velocity = walkSpeed * motion.Motion;
+                body.velocity = walkSpeed * motion.MotionVector;
             }
             else
             {
@@ -275,12 +275,12 @@ public class PlayerCharacter : MonoBehaviour
 
     public void OnFastAttack()
     {
-        DoAction(PlayerAction.Action.FastAttack);
+        DoAction(PlayerAction.ActionCommand.FastAttack);
     }
 
     public void OnSlowAttack()
     {
-        DoAction(PlayerAction.Action.SlowAttack);
+        DoAction(PlayerAction.ActionCommand.SlowAttack);
     }
 
     public void OnRun(InputValue value)
@@ -288,7 +288,7 @@ public class PlayerCharacter : MonoBehaviour
         motion.RunChanged(Mathf.Abs(value.Get<float>()) > 0.001);
     }
 
-    private void DoAction(PlayerAction.Action button)
+    private void DoAction(PlayerAction.ActionCommand button)
     {
         if(motion.InActionMode)
             action.AddAction(button);
