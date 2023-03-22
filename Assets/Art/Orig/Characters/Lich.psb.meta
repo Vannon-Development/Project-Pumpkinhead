@@ -463,115 +463,157 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Glow
-    spriteName: Glow
-    isGroup: 0
+  - name: Front Arm
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: 195390f12fda349658fc35f25295245b
-    layerID: 18
-    mosaicPosition: {x: 807, y: 1046}
-  - name: Crown
-    spriteName: Crown
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 020f2b630d6514fb383454b4ed110d16
-    layerID: 16
-    mosaicPosition: {x: 4, y: 1046}
-  - name: Front Horn
-    spriteName: Front Horn
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 6eed4c81b888a4e7081fdda739a2b13a
-    layerID: 6
-    mosaicPosition: {x: 807, y: 1261}
-  - name: Back Horn
-    spriteName: Back Horn
-    isGroup: 0
-    parentIndex: -1
-    spriteID: f32c558ca82444ab68944736cc5f8199
-    layerID: 8
-    mosaicPosition: {x: 4, y: 1465}
-  - name: Hood Glow
-    spriteName: Hood Glow
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 396b47611165d4efbadfcdda1e0a3572
-    layerID: 20
-    mosaicPosition: {x: 492, y: 568}
-  - name: Front Hood
-    spriteName: Front Hood
-    isGroup: 0
-    parentIndex: -1
-    spriteID: a4461b802364c4bb390963bd8636697b
-    layerID: 14
-    mosaicPosition: {x: 4, y: 4}
-  - name: Face 1
-    spriteName: Face 1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 621816fc65e1147ae8cc0963753e70fe
-    layerID: 36
-    mosaicPosition: {x: 590, y: 299}
-  - name: Head
-    spriteName: Head
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 0c108582fa1084bf7b20d4e80db56a76
-    layerID: 4
-    mosaicPosition: {x: 4, y: 568}
-  - name: Back Hood
-    spriteName: Back Hood
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 037596f2f078b44fa8a0021ab6b30a67
-    layerID: 10
-    mosaicPosition: {x: 547, y: 1046}
+    spriteID: 
+    layerID: 38
+    mosaicPosition: {x: 0, y: 0}
   - name: Front Arm
     spriteName: Front Arm
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 0
     spriteID: 29a89b99649fe4cf7b738d7bb7e1be4b
     layerID: 24
     mosaicPosition: {x: 895, y: 4}
   - name: Front Hand
     spriteName: Front Hand
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 0
     spriteID: fb978cb95c92b4618996fd63d8da7728
     layerID: 28
     mosaicPosition: {x: 492, y: 845}
+  - name: Head
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 40
+    mosaicPosition: {x: 0, y: 0}
+  - name: Glow
+    spriteName: Glow
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 195390f12fda349658fc35f25295245b
+    layerID: 18
+    mosaicPosition: {x: 807, y: 1046}
+  - name: Crown
+    spriteName: Crown
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 020f2b630d6514fb383454b4ed110d16
+    layerID: 16
+    mosaicPosition: {x: 4, y: 1046}
+  - name: Front Horn
+    spriteName: Front Horn
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 6eed4c81b888a4e7081fdda739a2b13a
+    layerID: 6
+    mosaicPosition: {x: 807, y: 1261}
+  - name: Back Horn
+    spriteName: Back Horn
+    isGroup: 0
+    parentIndex: 3
+    spriteID: f32c558ca82444ab68944736cc5f8199
+    layerID: 8
+    mosaicPosition: {x: 4, y: 1465}
+  - name: Hood Glow
+    spriteName: Hood Glow
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 396b47611165d4efbadfcdda1e0a3572
+    layerID: 20
+    mosaicPosition: {x: 492, y: 568}
+  - name: Front Hood
+    spriteName: Front Hood
+    isGroup: 0
+    parentIndex: 3
+    spriteID: a4461b802364c4bb390963bd8636697b
+    layerID: 14
+    mosaicPosition: {x: 4, y: 4}
+  - name: Face 1
+    spriteName: Face 1
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 621816fc65e1147ae8cc0963753e70fe
+    layerID: 36
+    mosaicPosition: {x: 590, y: 299}
+  - name: Head
+    spriteName: Head
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 0c108582fa1084bf7b20d4e80db56a76
+    layerID: 4
+    mosaicPosition: {x: 4, y: 568}
+  - name: Back Hood
+    spriteName: Back Hood
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 037596f2f078b44fa8a0021ab6b30a67
+    layerID: 10
+    mosaicPosition: {x: 547, y: 1046}
+  - name: Body
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 42
+    mosaicPosition: {x: 0, y: 0}
   - name: Body
     spriteName: Body
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 13
     spriteID: cb97867f258614c1fa423bb42cc3c7c8
     layerID: 22
     mosaicPosition: {x: 590, y: 4}
   - name: Back Arm
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 44
+    mosaicPosition: {x: 0, y: 0}
+  - name: Back Arm
     spriteName: Back Arm
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 15
     spriteID: 03d6a38c1faac493887aa315b9e73e8e
     layerID: 26
     mosaicPosition: {x: 895, y: 131}
   - name: Back Hand
     spriteName: Back Hand
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 15
     spriteID: 028a06e79815044e0bc97c949423ffeb
     layerID: 30
     mosaicPosition: {x: 831, y: 845}
   - name: Front Leg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 46
+    mosaicPosition: {x: 0, y: 0}
+  - name: Front Leg
     spriteName: Front Leg
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 18
     spriteID: 5e900731d29a44870bf2e6415a53c1cf
     layerID: 32
     mosaicPosition: {x: 608, y: 845}
   - name: Back Leg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 48
+    mosaicPosition: {x: 0, y: 0}
+  - name: Back Leg
     spriteName: Back Leg
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 20
     spriteID: 2cde7dd3b1d7846969bcf8e4c3e4590b
     layerID: 34
     mosaicPosition: {x: 721, y: 845}

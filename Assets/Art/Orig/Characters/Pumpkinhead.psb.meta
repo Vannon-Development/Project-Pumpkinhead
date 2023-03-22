@@ -309,69 +309,111 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Face
-    spriteName: Face
-    isGroup: 0
+  - name: Front Arm
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: ec90f88d33d4d430681d4e06ee40c1a6
-    layerID: 6
-    mosaicPosition: {x: 572, y: 4}
-  - name: Head
-    spriteName: Head
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 68f29a3bcd17a47ddbb9a20da723d0e8
-    layerID: 4
-    mosaicPosition: {x: 4, y: 4}
+    spriteID: 
+    layerID: 24
+    mosaicPosition: {x: 0, y: 0}
   - name: Front Arm
     spriteName: Front Arm
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 0
     spriteID: a2dd41cb5921f41ad970ec4e9eb87979
     layerID: 10
     mosaicPosition: {x: 417, y: 567}
   - name: Front Hand
     spriteName: Front Hand
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 0
     spriteID: 1c2be64e2ba2d4bcaa9278e03ac990bc
     layerID: 14
     mosaicPosition: {x: 296, y: 707}
+  - name: Head
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 22
+    mosaicPosition: {x: 0, y: 0}
+  - name: Face
+    spriteName: Face
+    isGroup: 0
+    parentIndex: 3
+    spriteID: ec90f88d33d4d430681d4e06ee40c1a6
+    layerID: 6
+    mosaicPosition: {x: 572, y: 4}
+  - name: Head
+    spriteName: Head
+    isGroup: 0
+    parentIndex: 3
+    spriteID: 68f29a3bcd17a47ddbb9a20da723d0e8
+    layerID: 4
+    mosaicPosition: {x: 4, y: 4}
+  - name: Body
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 26
+    mosaicPosition: {x: 0, y: 0}
   - name: Body
     spriteName: Body
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 6
     spriteID: 6d658e54122b343dc84f734fd1636d27
     layerID: 8
     mosaicPosition: {x: 4, y: 567}
-  - name: Back Leg
-    spriteName: Back Leg
-    isGroup: 0
+  - name: Back Arm
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: 5a5ec820650ec4fedbbf27696a73ad7d
-    layerID: 20
-    mosaicPosition: {x: 4, y: 854}
-  - name: Front Leg
-    spriteName: Front Leg
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 21b0d18ac85d148409b1fc7c2828807e
-    layerID: 18
-    mosaicPosition: {x: 412, y: 707}
-  - name: Back Hand
-    spriteName: Back Hand
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7400463cb5fe041399ee261da2865c3e
-    layerID: 16
-    mosaicPosition: {x: 115, y: 854}
+    spriteID: 
+    layerID: 28
+    mosaicPosition: {x: 0, y: 0}
   - name: Back Arm
     spriteName: Back Arm
     isGroup: 0
-    parentIndex: -1
+    parentIndex: 8
     spriteID: 5ff4265db4c0f42f2b91f3ef8551e35b
     layerID: 12
     mosaicPosition: {x: 296, y: 567}
+  - name: Back Hand
+    spriteName: Back Hand
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 7400463cb5fe041399ee261da2865c3e
+    layerID: 16
+    mosaicPosition: {x: 115, y: 854}
+  - name: Front Leg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 30
+    mosaicPosition: {x: 0, y: 0}
+  - name: Front Leg
+    spriteName: Front Leg
+    isGroup: 0
+    parentIndex: 11
+    spriteID: 21b0d18ac85d148409b1fc7c2828807e
+    layerID: 18
+    mosaicPosition: {x: 412, y: 707}
+  - name: Back Leg
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 32
+    mosaicPosition: {x: 0, y: 0}
+  - name: Back Leg
+    spriteName: Back Leg
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 5a5ec820650ec4fedbbf27696a73ad7d
+    layerID: 20
+    mosaicPosition: {x: 4, y: 854}
   characterData:
     bones: []
     parts: []
