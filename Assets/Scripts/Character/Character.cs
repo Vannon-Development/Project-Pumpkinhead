@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Character
 {
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Animator))]
     public class Character : MonoBehaviour
     {
         #region Inspector Properties
@@ -19,14 +19,21 @@ namespace Character
          */
         [Tooltip("Character run speed")]
         public Vector2 runSpeed;
+
+        public ActionTree actions;
         #endregion
 
         #region Internal Components
         /**
-         * <summary>Main rigid body for the character. This is loaded automatically at Start().</summary>
+         * <summary>Main rigid body for the character. This is loaded at Start().</summary>
          */
         [HideInInspector]
         public Rigidbody2D mainBody;
+
+        /**
+         * <summary>Object holding animation information for the character. This is loaded at Start().</summary>
+         */
+        public AnimationStatus AnimationStatus;
         #endregion
         
         #region Motion State Machine
@@ -53,12 +60,12 @@ namespace Character
         /**
          * <summary>The current MotionState for the character.</summary>
          */
-        private MotionState motionState;
+        private CharacterState characterState;
         
         /**
          * <summary>Static list of possible motion states. Order conforms to the MotionStates enum.</summary>
          */
-        private readonly MotionState[] motionStates = new MotionState[] { new IdleState(), new WalkState(), new RunState() };
+        private readonly CharacterState[] motionStates = new CharacterState[] { new IdleState(), new WalkState(), new RunState() };
 
         /**
          * <summary>MotionStatus structure attached to this character.</summary>
@@ -74,8 +81,10 @@ namespace Character
         private void Start()
         {
             mainBody = gameObject.GetComponent<Rigidbody2D>();
+            AnimationStatus = new AnimationStatus(gameObject.GetComponent<Animator>());
             MotionStatus = new MotionStatus();
-            motionState = motionStates[(int)MotionStates.Idle];
+            characterState = motionStates[(int)MotionStates.Idle];
+            characterState.StateBegin(this);
         }
 
         /**
@@ -102,8 +111,8 @@ namespace Character
          */
         public void ChangeMotionState(MotionStates value)
         {
-            motionState = motionStates[(int)value];
-            motionState.StateBegin(this);
+            characterState = motionStates[(int)value];
+            characterState.StateBegin(this);
         }
 
         /**
@@ -128,7 +137,7 @@ namespace Character
         private void OnMove(InputValue value)
         { 
             var stick = value.Get<Vector2>();
-            motionState.MoveChange(this, stick);
+            characterState.MoveChange(stick);
         }
 
         /**
@@ -138,7 +147,7 @@ namespace Character
         private void OnRun(InputValue value)
         {
             var pressed = Mathf.Abs(value.Get<float>()) > 0.001;
-            motionState.RunChange(this, pressed);
+            characterState.RunChange(pressed);
         }
         #endregion
     }

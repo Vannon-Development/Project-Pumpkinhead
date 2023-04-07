@@ -282,6 +282,98 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReaperNew
       objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: c6f6604e8033e425a92859aef6b558ce, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 6272cb497259c4f2298f53aaa3f9ca15, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 362ec522cbd23424aac5d38d91963188, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 73ac2fd383dff4d838cf9b5aa2ca315a, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].previousHitRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 9f6d101553c224464aa2ffcd5969c112, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 5ef5fcce618044f1894a32a5ed275a45, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].previousHitRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].previousHitRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].award
+      value: Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].award
+      value: Vault
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 92eca7c316d9c4587a0d61a4fa7d33a6, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 5436167f2524349b18e80e5a526ed788, type: 2}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.idleBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].previousHitRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741650438794959895, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
+      propertyPath: actions.walkingBranch.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].nextAction.Array.data[0].previousHitRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6a4ceebd380342e8bd8549359c891f4, type: 3}
 --- !u!1001 &2783633518816680992
