@@ -10964,7 +10964,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 96
     mosaicPosition: {x: 0, y: 0}
   - name: Front Arm
@@ -10992,7 +10992,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 98
     mosaicPosition: {x: 0, y: 0}
   - name: Front Hood
@@ -11153,7 +11153,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 100
     mosaicPosition: {x: 0, y: 0}
   - name: Body
@@ -11167,7 +11167,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 102
     mosaicPosition: {x: 0, y: 0}
   - name: Back Arm
@@ -11188,7 +11188,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 104
     mosaicPosition: {x: 0, y: 0}
   - name: Front Leg
@@ -11202,7 +11202,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 
+    spriteID: 00000000000000000000000000000000
     layerID: 106
     mosaicPosition: {x: 0, y: 0}
   - name: Back Leg
