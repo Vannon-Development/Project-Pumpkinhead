@@ -4,5 +4,6 @@ namespace Character
 {
     public class AICharacter : BaseCharacter
     {
+        
     }
 }
